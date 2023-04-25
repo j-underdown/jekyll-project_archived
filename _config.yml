@@ -1,0 +1,118 @@
+site: Julian Underdown
+
+url: https://www.julianunderdown.com/
+baseurl:
+
+tags_dir: tag
+all_tags_dir: tags
+
+
+collections:
+  pages:
+    output: true
+    permalink: /:name
+  posts:
+    output: true
+    permalink: /blog/:slug
+  projects:
+    output: true
+    permalink: /project/:slug
+  collection1:
+    output: true
+    permalink: /collection1/:slug
+  collection2:
+    output: true
+    permalink: /collection2/:slug
+  collection3:
+    output: true
+    permalink: /collection3/:slug
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+  -
+    scope:
+      path: ""
+      type: "collection1"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: ""
+      type: "collection2"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: ""
+      type: "collection3"
+    values:
+      layout: "post"
+
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+sass:
+  style: compressed
+
+# Update the plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - webrick
+  - kramdown-parser-gfm
+
+# Add pagination configuration for blog
+paginate: 7
+paginate_path: "/blog/page:num/"
+
+# Remove or comment out the following lines
+# pagination:
+#   enabled: true
+#   collections:
+#     blog:
+#       per_page: 7
+#       permalink: "/blog/page/:num/"
+#       title: " - page :num"
+#       sort_field: "date"
+#       sort_reverse: true
+#     collection1:
+#       per_page: 7
+#       permalink: "/collection1/page/:num/"
+#       title: " - page :num"
+#       sort_field: "date"
+#       sort_reverse: true
+#   tags:
+#     layout: "tag_page"
+#     enabled: true
+#     slug: "tags/:tag"

@@ -1,0 +1,26 @@
+<section class="about">
+  {% if include.divider == true %}
+    <div class="wrap"><hr/></div>
+    {% endif %}
+  <div class="wrap grid">
+
+    <div class="about__image">
+      <img src="{{ '/images/profile.jpg' | relative_url }}" alt="">
+
+      {% include component-socials.html %}
+    </div>
+
+    <div class="about__content">
+      <h2 class="title">Welcome.</h2>
+      <p class="subtitle subtitle--light">My name is Julian Underdown.</p>
+
+      <p>I’m an analyst with over 8 years of experience working in tech, across product, commercial, and trust and safety.
+      </p>
+
+      <p>My skills include end-to-end product lifecycle support, ETL development, exploratory data analysis and visualization. I work mostly with SQL, Python, and Tableau.</p>
+      <p>If you want to connect over common interests, or have feedback or questions about the content of this site, please reach out.</p>
+
+      <a href="#" class="cta button--fill contact-trigger js-contact">Get in Touch</a>
+    </div>
+  </div>
+</section>

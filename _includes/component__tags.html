@@ -1,0 +1,14 @@
+{% assign tag = include.tag %}
+{% assign posts = include.posts %}
+{% assign posts_with_tag = posts | where_exp: "post", "post.tags contains tag" %}
+
+{% if posts_with_tag.size > 0 %}
+<div class="tags">
+  <p>
+    <strong>Tagged:</strong>
+    {% for post in posts_with_tag %}
+    <a href="{{ post.url | relative_url }}" class="tag">{{ post.title }}</a>
+    {% endfor %}
+  </p>
+</div>
+{% endif %}

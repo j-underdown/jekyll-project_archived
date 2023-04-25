@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<div class="page-all-tags">
+  <header class="header--single">
+    <div class="wrap">
+      <h1 class="header__title">{{page.title}}</h1>
+      <p class="header__subtitle subtitle--light">{{page.subtitle}}</p>
+    </div>
+  </header>
+
+  <section class="all-posts">
+    <div class="wrap">
+      <div class="tags__list">
+        {% capture tags %}
+          {% for tag in site.tags %}
+            {{ tag[1].size | plus: -10000 }}###{{ tag[0] | replace: ' ', '##' }}###{{ tag[1].size }}
+          {% endfor %}
+        {% endcapture %}
+        {% assign sorted_tags = tags | split: ' ' | sort %}
+        {% for sorted_tag in sorted_tags %}
+            {% assign items = sorted_tag | split: '###' %}
+            {% assign tag = items[1] | replace: '##', ' ' %}
+            {% assign count = items[2] | plus: 0 %}
+            {% if count > 5 %}
+                {% assign size = 5 %}
+            {% else %}
+                {% assign size = count %}
+            {% endif %}
+            <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}" class="tag">{{ tag }}<span class="tag-count">{{ count }}</span></a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</div>
